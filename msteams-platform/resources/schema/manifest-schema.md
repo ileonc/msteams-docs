@@ -359,6 +359,8 @@ This version string must follow the [semver](http://semver.org/) standard (MAJOR
 
 The ID is a unique Microsoft-generated identifier for the app. You have an ID if your bot is registered through the Microsoft Bot Framework. You have an ID if your tab's web app already signs in with Microsoft. You must enter the ID here. Otherwise, you must generate a new ID at the [Microsoft Application Registration Portal](https://aka.ms/appregistrations). Use the same ID if you add a bot.
 
+Please be aware that the ID is case sensitive, in so far as the ID in this manifest has to match the ID in the Microsoft Bot Framework, exactly.  Code and JSON editors may apply capitalisation rules which might change the ID in the manifest; this will not match the ID in the Microsoft Bot Framework. 
+
 The ID stored in Teams Admin Center is the **External App ID** and it is visible as **ExternalID** on the traces.
 
 > [!NOTE]
@@ -489,7 +491,7 @@ The item is an array (maximum of only one element&mdash;currently only one bot i
 
 |Name| Type| Maximum size | Required | Description|
 |---|---|---|---|---|
-|`botId`|string|64 characters|✔️|The unique Microsoft app ID for the bot as registered with the Bot Framework. The ID can be the same as the overall [app ID](#id).|
+|`botId`|string|64 characters|✔️|The unique Microsoft app ID for the bot as registered with the Bot Framework. This ID has to match the ID in the Microsoft Bot Framework portal exactly. The ID can be the same as the overall [app ID](#id).|
 |`scopes`|array of enums|3|✔️|Specifies whether the bot offers an experience in the context of a channel in a `team`, in a group chat (`groupChat`), or an experience scoped to an individual user alone (`personal`). These options are non-exclusive.|
 |`needsChannelSelector`|Boolean|||Describes whether or not the bot uses a user hint to add the bot to a specific channel. Default: **`false`**|
 |`isNotificationOnly`|Boolean|||Indicates whether a bot is a one-way, notification-only bot, as opposed to a conversational bot. Default: **`false`**|
